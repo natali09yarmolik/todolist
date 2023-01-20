@@ -6,8 +6,9 @@ const initialState:TodolistType[]=[]
 export const todolistReduser=(state:TodolistType[]=initialState, action:TodolistReduserActionType):TodolistType[]=>
 {
     switch (action.type){
+
         case "REMOVE-TODOLIST":{
-               return state.filter(el=>el.id===action.payload.todolistId1)
+               return state.filter(el=>el.id!==action.payload.todolistId1)
             }
         case "ADD-TODOLIST":{
             let newTodolistId = action.payload.todolistId;

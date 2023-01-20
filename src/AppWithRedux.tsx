@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import './App.css';
 import {AddItemForm} from './AddItemForm';
 import AppBar from '@mui/material/AppBar/AppBar';
@@ -8,6 +8,7 @@ import {TodolistAddAC} from "./state/todolist-reduser";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "./state/store";
 import {TodolistWithRedux} from "./TodolistWithRedux";
+import {todolistSelectors} from "./selectors/todolistSelectors";
 
 
 export type FilterValuesType = "all" | "active" | "completed";
@@ -19,13 +20,13 @@ export type TodolistType = {
 
 function AppWithRedux() {
     const todolists=useSelector<AppRootStateType, TodolistType[]>(
-        state=>state.todolists)
+        todolistSelectors)
 
     const dispatch=useDispatch()
 
-    function addTodolist(title: string) {
+    const addTodolist=useCallback((title: string)=> {
           dispatch(TodolistAddAC(title))
-    }
+    }, [dispatch])
 
     return (
         <div className="App">
