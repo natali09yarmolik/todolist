@@ -35,11 +35,7 @@ export const TodolistWithRedux= memo(({todolist}: PropsType)=> {
     const addTask =useCallback((title: string) => {
         dispatch(addTaskAC(title, id));}, [dispatch])
 
-   /* const removeTask = useCallback((taskID:string) => {
-        dispatch(removeTaskAC(taskID, id))
-    },[dispatch])*/
-
-    const removeTodolist =useCallback(() => {
+       const removeTodolist =useCallback(() => {
         dispatch(TodolistRemoveAC(id))
     }, [dispatch])
 
@@ -59,12 +55,6 @@ export const TodolistWithRedux= memo(({todolist}: PropsType)=> {
         tasks = tasks.filter(t => t.isDone );
     }
 
-    /*const onClickHandler=useCallback((taskId:string)=>{removeTask(taskId)}, [])
-    const onChangeHandler =useCallback((taskId:string, status:boolean) => {
-        dispatch(changeTaskStatusAC(taskId, status, id));    }, [dispatch])
-    const onTitleChangeHandler =useCallback((taskId:string, newValue: string) => {
-        dispatch(changeTaskTitleAC(taskId, newValue, id)); }, [dispatch])*/
-
     return <div>
         <h3> <EditableSpan value={title} onChange={changeTodolistTitle} />
             <IconButton onClick={removeTodolist}>
@@ -78,13 +68,7 @@ export const TodolistWithRedux= memo(({todolist}: PropsType)=> {
                     return <TaskWithRedux key={t.id}
                                           todolistId={t.id}
                                           task={t}/>
-                    /* <Task key={t.id}
-                                  task={t}
-                                  removeTask={onClickHandler}
-                                  changeTaskStatus={onChangeHandler}
-                                  changeTaskTitle={onTitleChangeHandler}/>*/
-
-                })
+                  })
             }
         </div>
         <div>

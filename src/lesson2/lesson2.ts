@@ -23,9 +23,9 @@ console.log('lesson 2');
 
 // Task 01
 // Реализовать функцию sum которая суммирует 2 числа следующим образом sum(3)(6) === 9
-let i=0
+/*let i=0
 let sum=0
-/*const summa:number=(n:Array)=>{
+const summa:number=(n:Array)=>{
     i++
     if(i===n.length)
     {return n[i-1]}
