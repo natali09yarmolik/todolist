@@ -21,6 +21,15 @@ type TaskType={
     order: number
     addedDate: Date
 }
+type UpdateModelType={
+    title: string
+    description: string
+    completed: boolean
+    status: number
+    priority: number
+    startDate: string
+    deadline: string
+}
 type GetTasksType= {
     items: TaskType[]
     Items: TaskType
@@ -52,9 +61,9 @@ type ResponseType<D={}>={
 
 
 export const taskAPI = {
-    updateTask(todolistId: string,taskId:string, title: string) {
+    updateTask(todolistId: string,taskId:string, model:UpdateModelType) {
         return instance.put<ResponceType>(`todo-lists/${todolistId}/tasks/${taskId}`,
-            { title: title } )
+            model )
     },
     deleteTask(todolistId: string, taskId:string) {
         return instance.delete<ResponceType>(
