@@ -37,27 +37,13 @@ type GetTasksType= {
     error: string
 }
 
-/*type PostAndPutAndDeleteTaskType={
-    resultCode: number
-    messages: string[],
-    data: {}
-}*/
+
 type ResponceType<D={}>={
     resultCode: number
     messages: string[],
     data: D
 }
-/*type TodolistType = {
-    id: string
-    addedDate: string
-    order: number
-    title: string
-}
-type ResponseType<D={}>={
-    resultCode: number
-    messages: string[],
-    data: D
-}*/
+
 
 
 export const taskAPI = {

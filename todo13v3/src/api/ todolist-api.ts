@@ -10,13 +10,7 @@ const instance=axios.create({
         'API-KEY': '58405d8a-0757-4cae-8a64-01c1b1e3c28e',
     },
 })
-/*type CreateTodoType={
-    resultCode: number
-    messages: string[],
-    data: {
-        item: TodolistType
-    }
-}*/
+
 type TodolistType = {
     id: string
     addedDate: string
@@ -28,15 +22,7 @@ type ResponseType<D={}>={
     messages: string[],
     data: D
 }
-/*
-const settings = {
-    withCredentials: true,
-    headers: {
-        // Не забываем заменить API-KEY на собственный
-        'API-KEY': '58405d8a-0757-4cae-8a64-01c1b1e3c28e',
-    },
-}
-*/
+
 
 export const todolistAPI = {
     updateTodolist(todolistId: string, title: string) {
